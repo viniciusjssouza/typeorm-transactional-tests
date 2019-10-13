@@ -1,5 +1,5 @@
 /**
- * Wraps the original TypeORM query wrapper to apply the transactional context
+ * Wraps the original TypeORM query runner to apply the transactional context
  * during tests.
  */
 import { QueryRunner } from 'typeorm'
