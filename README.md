@@ -35,7 +35,8 @@ beforeEach(async () => {
 afterEach(async () => {
     await transactionalContext.finish();
 });
-```'
+```
+
 Also, it is possible to apply the context to all your tests using a global Jest setup file. Add a new file on your test folder:
 
 ```typescript 
