@@ -14,7 +14,7 @@ export default class TransactionalTestContext {
       throw new Error('Context already started');
     }
     try {
-      this.queryRunner = await this.buildWrappedQueryRunner();
+      this.queryRunner = this.buildWrappedQueryRunner();
       this.monkeyPatchQueryRunnerCreation(this.queryRunner);
 
       await this.queryRunner.connect();
@@ -36,8 +36,8 @@ export default class TransactionalTestContext {
     }
   }
 
-  private async buildWrappedQueryRunner(): Promise<QueryRunnerWrapper> {
-    const queryRunner = await this.connection.createQueryRunner();
+  private buildWrappedQueryRunner(): QueryRunnerWrapper {
+    const queryRunner = this.connection.createQueryRunner();
     return wrap(queryRunner);
   }
 

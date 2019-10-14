@@ -10,7 +10,7 @@ describe('TransactionalTestContext', () => {
   let wrappedRunner: any;
   const queryRunner = {} as QueryRunner;
   // @ts-ignore wrapper here is a jest mock
-  wrapper.wrap = jest.fn().mockImplementation(() =>  Promise.resolve(wrappedRunner) );
+  wrapper.wrap = jest.fn().mockImplementation(() => wrappedRunner);
 
   beforeEach(() => {
     connection = Object.create({
