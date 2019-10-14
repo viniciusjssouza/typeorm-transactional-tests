@@ -1,7 +1,7 @@
 # TypeORM transactional tests
 
-[![Travis](https://img.shields.io/travis/alexjoverm/typescript-library-starter.svg)](https://travis-ci.org/alexjoverm/typescript-library-starter)
-[![Coveralls](https://img.shields.io/coveralls/alexjoverm/typescript-library-starter.svg)](https://coveralls.io/github/alexjoverm/typescript-library-starter)
+[![Travis](https://img.shields.io/travis/viniciusjssouza/typeorm-transactional-tests.svg)](https://travis-ci.org/alexjoverm/typescript-library-starter)
+[![Coverage Status](https://coveralls.io/repos/github/viniciusjssouza/typeorm-transactional-tests/badge.svg?branch=master)](https://coveralls.io/github/viniciusjssouza/typeorm-transactional-tests?branch=master)
 
 TypeORM does not provide builtin transactional tests. If your tests write to a non in-memory database, probably you have to truncate 
 or erase all your tables for every test case.
