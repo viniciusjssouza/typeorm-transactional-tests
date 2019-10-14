@@ -19,14 +19,14 @@ npm install --save-dev typeorm-transactional-tests
 #### Jest
 To apply the transactional context with Jest, just start the context in an `beforeEach` block and finish it in an `afterEach`:
 ```typescript
-import TransactionalTestContext from 'typeorm-transactional-tests'
+import TransactionalTestContext from 'typeorm-transactional-tests';
 
 const connection = getConnection();
 const transactionalContext = new TransactionalTestContext(connection);
 
 describe('some repository test', () => {
-  beforeEach(async () => await transactionalContext.start())
-  afterEach(async () => await transactionalContext.finish())
+  beforeEach(async () => await transactionalContext.start());
+  afterEach(async () => await transactionalContext.finish());
 })
 ```
 Also, it is possible to apply the context to all your tests using a global Jest setup file. Add a new file on your test folder:
