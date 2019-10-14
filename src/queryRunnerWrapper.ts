@@ -2,25 +2,26 @@
  * Wraps the original TypeORM query runner to intercept some calls
  * and manipulate the transactional context.
  */
-import { QueryRunner } from 'typeorm'
+import { QueryRunner } from 'typeorm';
 
 interface QueryRunnerWrapper extends QueryRunner {
-  releaseQueryRunner(): Promise<void>
+  releaseQueryRunner(): Promise<void>;
 }
+
+let release: () => Promise<void>;
 
 const wrap = (originalQueryRunner: QueryRunner): QueryRunnerWrapper => {
-  const wrapper = {} as QueryRunnerWrapper
-  Object.setPrototypeOf(wrapper, Object.getPrototypeOf(originalQueryRunner))
-  Object.assign(wrapper, originalQueryRunner)
-  wrapper.release = () => {
-    return Promise.resolve()
-  }
+  release = originalQueryRunner.release;
+  originalQueryRunner.release = () => {
+    return Promise.resolve();
+  };
 
-  wrapper.releaseQueryRunner = () => {
-    return originalQueryRunner.release()
-  }
+  (originalQueryRunner as QueryRunnerWrapper).releaseQueryRunner = () => {
+    originalQueryRunner.release = release;
+    return originalQueryRunner.release();
+  };
 
-  return wrapper
-}
+  return originalQueryRunner as QueryRunnerWrapper;
+};
 
-export { QueryRunnerWrapper, wrap }
+export { QueryRunnerWrapper, wrap };
