@@ -1,18 +1,19 @@
 {
   "name": "typeorm-transactional-tests",
   "version": "0.0.0",
+  "homepage": "https://github.com/viniciusjssouza/typeorm-transactional-tests",
   "description": "",
   "keywords": [],
   "main": "dist/typeorm-transactional-tests.umd.js",
   "module": "dist/typeorm-transactional-tests.es5.js",
-  "typings": "dist/types/typeorm-transactional-tests.d.ts",
+  "types": "dist/types/index.d.ts",
   "files": [
     "dist"
   ],
-  "author": "viniciusjssouza <vinicius.souza@redealumni.com>",
+  "author": "Vinicius Souza <viniciusjssouza@gmail.com>",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/viniciusjssouza/typeorm-transactional-tests"
   },
   "license": "MIT",
   "engines": {
@@ -32,7 +33,8 @@
     "semantic-release": "semantic-release",
     "semantic-release-prepare": "ts-node tools/semantic-release-prepare",
     "precommit": "lint-staged",
-    "travis-deploy-once": "travis-deploy-once"
+    "travis-deploy-once": "travis-deploy-once",
+    "commitmsg": "commitlint -E HUSKY_GIT_PARAMS"
   },
   "lint-staged": {
     "{src,test}/**/*.ts": [
