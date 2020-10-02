@@ -4,6 +4,7 @@ import sourceMaps from 'rollup-plugin-sourcemaps'
 import camelCase from 'lodash.camelcase'
 import typescript from 'rollup-plugin-typescript2'
 import json from 'rollup-plugin-json'
+import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 
 const pkg = require('./package.json')
 
@@ -14,10 +15,6 @@ export default {
   output: [
     { file: pkg.main, name: camelCase(libraryName), format: 'umd', sourcemap: true },
     { file: pkg.module, format: 'es', sourcemap: true },
-  ],
-  // Indicate here external modules you don't wanna include in your bundle (i.e.: 'lodash')
-  external: [
-    ...Object.keys(pkg.dependencies || {})
   ],
   watch: {
     include: 'src/**',
@@ -36,5 +33,8 @@ export default {
 
     // Resolve source maps to the original source
     sourceMaps(),
+
+    // Automatically include peer dependencies in the rollup externals.
+    peerDepsExternal(),
   ],
 }
