@@ -34,7 +34,8 @@
     "semantic-release-prepare": "ts-node tools/semantic-release-prepare",
     "precommit": "lint-staged",
     "travis-deploy-once": "travis-deploy-once",
-    "commitmsg": "commitlint -E HUSKY_GIT_PARAMS"
+    "commitmsg": "commitlint -E HUSKY_GIT_PARAMS",
+    "prepush": "npm run test:prod && npm run build"
   },
   "lint-staged": {
     "{src,test}/**/*.ts": [
@@ -126,5 +127,8 @@
     "typedoc": "^0.19.2",
     "typeorm": "^0.3.6",
     "typescript": "^3.9.7"
+  },
+  "optionalDependencies": {
+    "fsevents": "^2.3.2"
   }
 }
