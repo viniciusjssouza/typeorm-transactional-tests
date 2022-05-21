@@ -127,5 +127,8 @@
     "typedoc": "^0.19.2",
     "typeorm": "^0.3.6",
     "typescript": "^3.9.7"
+  },
+  "optionalDependencies": {
+    "fsevents": "^2.3.2"
   }
 }
