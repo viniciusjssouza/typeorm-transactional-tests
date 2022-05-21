@@ -87,7 +87,7 @@
     ]
   },
   "peerDependencies": {
-    "typeorm": "^0.2.9"
+    "typeorm": "^0.3.6"
   },
   "devDependencies": {
     "@commitlint/cli": "^7.1.2",
@@ -115,17 +115,17 @@
     "rollup-plugin-peer-deps-external": "^2.2.3",
     "rollup-plugin-sourcemaps": "^0.4.2",
     "rollup-plugin-typescript2": "^0.27.3",
-    "semantic-release": "^15.9.16",
+    "semantic-release": "^17.2.3",
     "shelljs": "^0.8.3",
     "sqlite3": "^5.0.0",
     "travis-deploy-once": "^5.0.9",
     "ts-jest": "^23.10.2",
-    "ts-node": "^7.0.1",
+    "ts-node": "^10.7.0",
     "tslint": "^5.11.0",
     "tslint-config-prettier": "^1.15.0",
     "tslint-config-standard": "^8.0.1",
     "typedoc": "^0.19.2",
-    "typeorm": "^0.2.28",
+    "typeorm": "^0.3.6",
     "typescript": "^3.9.7"
   }
 }

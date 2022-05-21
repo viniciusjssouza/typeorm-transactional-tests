@@ -1,11 +1,11 @@
-import { Connection } from 'typeorm';
+import { DataSource } from 'typeorm';
 import { QueryRunnerWrapper, wrap } from './queryRunnerWrapper';
 
 export default class TransactionalTestContext {
   private queryRunner: QueryRunnerWrapper | null = null;
   private originQueryRunnerFunction: any;
 
-  constructor(private readonly connection: Connection) {}
+  constructor(private readonly connection: DataSource) {}
 
   async start(): Promise<void> {
     if (this.queryRunner) {
@@ -41,12 +41,12 @@ export default class TransactionalTestContext {
   }
 
   private monkeyPatchQueryRunnerCreation(queryRunner: QueryRunnerWrapper): void {
-    this.originQueryRunnerFunction = Connection.prototype.createQueryRunner;
-    Connection.prototype.createQueryRunner = () => queryRunner;
+    this.originQueryRunnerFunction = DataSource.prototype.createQueryRunner;
+    DataSource.prototype.createQueryRunner = () => queryRunner;
   }
 
   private restoreQueryRunnerCreation(): void {
-    Connection.prototype.createQueryRunner = this.originQueryRunnerFunction;
+    DataSource.prototype.createQueryRunner = this.originQueryRunnerFunction;
   }
 
   private async cleanUpResources(): Promise<void> {
