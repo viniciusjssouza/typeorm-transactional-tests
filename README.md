@@ -1,6 +1,6 @@
 # TypeORM transactional tests
 
-[![Travis](https://img.shields.io/travis/viniciusjssouza/typeorm-transactional-tests.svg)](https://travis-ci.org/alexjoverm/typescript-library-starter)
+[![Travis](https://app.travis-ci.com/viniciusjssouza/typeorm-transactional-tests.svg?branch=master&status=passed)](https://app.travis-ci.com/github/viniciusjssouza/typeorm-transactional-tests)
 [![Coverage Status](https://coveralls.io/repos/github/viniciusjssouza/typeorm-transactional-tests/badge.svg?branch=master)](https://coveralls.io/github/viniciusjssouza/typeorm-transactional-tests?branch=master)
 
 TypeORM does not provide builtin transactional tests. If your tests write to a non in-memory database, probably you have to truncate 
@@ -13,6 +13,11 @@ and rolling back at the end. This is a faster solution than truncate/delete, onc
 ```bash
 npm install --save-dev typeorm-transactional-tests
 ```
+
+### Typeorm compatibility 
+Versions **1.x.x** of this library is compatible with typeorm **0.2.x**
+
+Versions **2.x.x** of this library is compatible with typeorm **0.3.x**
 
 ### Usage
 
