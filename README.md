@@ -10,9 +10,15 @@ This package allows the creation of transactional contexts during the test, star
 and rolling back at the end. This is a faster solution than truncate/delete, once nothing is really written to disk.   
 
 ### Install
-```bash
+```shell
 npm install --save-dev typeorm-transactional-tests
 ```
+
+Or with yarn:
+```shell
+npm install --save-dev typeorm-transactional-tests
+```
+
 
 ### Typeorm compatibility 
 Versions **1.x.x** of this library is compatible with typeorm **0.2.x**
@@ -45,7 +51,7 @@ afterEach(async () => {
 Also, it is possible to apply the context to all your tests using a global Jest setup file. Add a new file on your test folder:
 
 ```typescript 
-import TransactionalTestContext from 'typeorm-transactional-tests'
+import { TransactionalTestContext } from 'typeorm-transactional-tests'
 
 // @ts-ignore
 global.beforeEach(async () => await transactionalContext.start());
