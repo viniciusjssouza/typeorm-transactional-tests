@@ -16,7 +16,7 @@ npm install --save-dev typeorm-transactional-tests
 
 Or with yarn:
 ```shell
-npm install --save-dev typeorm-transactional-tests
+yarn install --save-dev typeorm-transactional-tests
 ```
 
 
