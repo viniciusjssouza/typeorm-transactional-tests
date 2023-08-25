@@ -41,12 +41,12 @@ export default class TransactionalTestContext {
   }
 
   private monkeyPatchQueryRunnerCreation(queryRunner: QueryRunnerWrapper): void {
-    this.originQueryRunnerFunction = DataSource.prototype.createQueryRunner;
-    DataSource.prototype.createQueryRunner = () => queryRunner;
+    this.originQueryRunnerFunction = this.connection.createQueryRunner
+    this.connection.createQueryRunner = () => queryRunner
   }
 
   private restoreQueryRunnerCreation(): void {
-    DataSource.prototype.createQueryRunner = this.originQueryRunnerFunction;
+    this.connection.createQueryRunner = this.originQueryRunnerFunction
   }
 
   private async cleanUpResources(): Promise<void> {
